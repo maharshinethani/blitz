@@ -307,34 +307,7 @@ const Speakers = () => {
             Meet the visionaries and experts who will share their insights on this
           </p>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
-        >
-          <div className="md:col-span-2">
-            <AnimatePresence mode="wait">
-              <MainSpeakerCard key={selectedSpeaker?.id} speaker={selectedSpeaker} />
-            </AnimatePresence>
-          </div>
-
-          <div className="space-y-4">
-            {speakers.map((speaker, index) => (
-              <SpeakerListItem
-                key={speaker.id}
-                speaker={speaker}
-                onClick={setSelectedSpeakerId}
-                isActive={selectedSpeakerId === speaker.id}
-                delay={index}
-              />
-            ))}
-          </div>
-        </motion.div>
-
       
-      </div>
     </section>
   );
 };
