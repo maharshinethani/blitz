@@ -10,49 +10,9 @@ const speakers = [
     title: 'Chairman',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxWBTsghQUxGvrLEaKP-Am3fwUzjYEIGisgTUHauBTFBkmgYYId9r1Jr9P49YeK7G_y4s&usqp=CAU',
   },
-  {
-    id: 4,
-    name: 'Dr. N SUGUNA REDDY',
-    title: 'Secretary',
-    image: 'https://media.licdn.com/dms/image/v2/D4D03AQGD3WiNukBWsg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1715861894258?e=2147483647&v=beta&t=TVdh_VSI-IDbFI4kwnJlo4DMEy7xWRneWXJveG3pYRc',
-  },
-  {
-    id: 5,
-    name: 'Dr. B E V L NAIDU',
-    title: 'Academic Director',
-    image: 'https://yt3.googleusercontent.com/ytc/AIdro_mi2yHb0a-AWkc0h2mno-BeII_EIZUw2rD-08nYE_pZIMq6=s900-c-k-c0x00ffffff-no-rj',
-  },
-  {
-    id: 6,
-    name: 'U SIDDHARTHA REDDY',
-    title: 'Dean Of AI',
-    image: '/dean.JPG'
-  },
-   {
-    id: 7,
-    name: 'M SATYA PRAKASH',
-    title: 'Principal-(ADCGWK)',
-    image: '/SP_SIR.JPG'
-  }, 
-  {
-    id:8 ,
-    name: 'P PRADEEP KUMAR',
-    title: 'Principal-(AWDCGWK)',
-    image: '/pradeep.JPG'
-  },
-  {
-    id: 9,
-    name: 'R V R PATRUDU',
-    title: 'Vice Principal',
-    image: '/patru.jpg',
-  },
+ 
 
-  {
-    id: 10,
-    name: 'T SAI RATNAM',
-    title: 'HOD OF AI',
-    image: '/SAIRATNAM.jpg',
-  },
+
 ];
 
 const chiefGuest = {
@@ -307,7 +267,34 @@ const Speakers = () => {
             Meet the visionaries and experts who will share their insights on this
           </p>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+        >
+          <div className="md:col-span-2">
+            <AnimatePresence mode="wait">
+              <MainSpeakerCard key={selectedSpeaker?.id} speaker={selectedSpeaker} />
+            </AnimatePresence>
+          </div>
+
+          <div className="space-y-4">
+            {speakers.map((speaker, index) => (
+              <SpeakerListItem
+                key={speaker.id}
+                speaker={speaker}
+                onClick={setSelectedSpeakerId}
+                isActive={selectedSpeakerId === speaker.id}
+                delay={index}
+              />
+            ))}
+          </div>
+        </motion.div>
+
       
+      </div>
     </section>
   );
 };
