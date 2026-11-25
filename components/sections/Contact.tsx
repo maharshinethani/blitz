@@ -2,30 +2,29 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, Phone, MapPin, Globe, Send, Users, Calendar, Award } from 'lucide-react';
+import { Instagram, Phone, MapPin, Globe, Send, Users, Calendar, Award } from 'lucide-react';
 import ParticleBackground from '../ParticleBackground';
 
 const contactCards = [
   {
     id: 1,
-    title: 'Email Us',
-    value: 'visionx.ai2k25@gmail.com',
-    subtitle: 'General Inquiries & Registration',
-    icon: Mail,
+    title: 'Instagram',
+    value: '@blitz.2k26', // Replace with your actual Instagram handle
+    subtitle: 'Updates, Reels & Highlights',
+    icon: Instagram,
     color: 'cyan',
     hoverColor: 'from-cyan-500/30 to-blue-500/30',
     borderColor: 'border-cyan-400/30',
     glowColor: 'shadow-cyan-400/30',
-    type: 'email', // Add a type for handling different links
-    href: 'mailto:visionx.ai2k25@gmail.com' // Add the mailto link
+    type: 'instagram',
+    href: 'https://www.instagram.com/blitz.2k26' // Replace with your actual Instagram URL
   },
   {
     id: 2,
     title: 'Call Us',
     values: [
-      '+91 6300119669',
-      '+91 8639850059',
-      '+91 8143231615'
+      '+91 9700716787',
+      '+91 9063435324'
     ],
     subtitle: 'Event Coordination & Support',
     icon: Phone,
@@ -33,20 +32,20 @@ const contactCards = [
     hoverColor: 'from-purple-500/30 to-pink-500/30',
     borderColor: 'border-purple-400/30',
     glowColor: 'shadow-purple-400/30',
-    type: 'phone' // Add a type
+    type: 'phone'
   },
   {
     id: 3,
     title: 'Visit Us',
-    value: 'Vagdevi Commerce',
+    value: 'Vagdevi Commerce College',
     subtitle: 'Andhra Pradesh, Visakhapatnam, India',
     icon: MapPin,
     color: 'green',
     hoverColor: 'from-green-500/30 to-emerald-500/30',
     borderColor: 'border-green-400/30',
     glowColor: 'shadow-green-400/30',
-    type: 'map', // Add a type
-    href: 'https://www.google.com/maps/dir/?api=1&destination=Aditya+Degree+College+Gajuwaka' // Add the Google Maps URL
+    type: 'map',
+    href: 'https://www.google.com/maps/dir/?api=1&destination=Aditya+Degree+College+Gajuwaka'
   },
   {
     id: 4,
@@ -58,35 +57,8 @@ const contactCards = [
     hoverColor: 'from-orange-500/30 to-red-500/30',
     borderColor: 'border-orange-400/30',
     glowColor: 'shadow-orange-400/30',
-    type: 'website', // Add a type
-    href: 'blitz.netlify.app' // Add the website URL
-  },
-];
-
-const quickStats = [
-  {
-    icon: Users,
-    count: '500+',
-    label: 'Participants Expected',
-    color: 'text-cyan-400',
-  },
-  {
-    icon: Calendar,
-    count: '2',
-    label: 'Days of Innovation',
-    color: 'text-purple-400',
-  },
-  {
-    icon: Award,
-    count: '50+',
-    label: 'Organizers',
-    color: 'text-green-400',
-  },
-  {
-    icon: Send,
-    count: '24/7',
-    label: 'Event Support',
-    color: 'text-orange-400',
+    type: 'website',
+    href: 'https://blitz.netlify.app' // Added https:// so external link works properly
   },
 ];
 
@@ -95,7 +67,7 @@ const ContactCard = ({ card }: { card: typeof contactCards[0] }) => {
 
   // Function to determine the correct wrapper for the link
   const renderValue = (value: string | string[]) => {
-    if (card.type === 'website' || card.type === 'email' || card.type === 'map') {
+    if (card.type === 'website' || card.type === 'instagram' || card.type === 'map') {
       return (
         <a
           href={card.href}
@@ -112,7 +84,7 @@ const ContactCard = ({ card }: { card: typeof contactCards[0] }) => {
           {value.map((phone, idx) => (
             <a
               key={idx}
-              href={`tel:${phone.replace(/\s/g, '')}`} // Use `tel:` for phone numbers
+              href={`tel:${phone.replace(/\s/g, '')}`}
               className="text-white font-semibold text-lg hover:underline transition-transform duration-300"
             >
               {phone}
@@ -130,10 +102,7 @@ const ContactCard = ({ card }: { card: typeof contactCards[0] }) => {
 
   return (
     <motion.div
-      className={`glassmorphism rounded-2xl p-6 neon-border group hover:scale-105 transition-all duration-500 relative overflow-hidden ${card.borderColor}`}
-      whileHover={{ 
-        y: -10,
-        boxShadow: `0 20px 40px ${card.glowColor.replace('shadow-', 'rgba').replace('/30', ', 0.3)')}`
+      className={`glassmorphism rounded-2xl p-6 neon-border group hover:scale-105 transition-all duration-500 relative overflow-hidden ${card.borderColor}`} whileHover={{ y: -10, boxShadow: `0 20px 40px ${card.glowColor.replace('shadow-', 'rgba').replace('/30', ', 0.3)')}`
       }}
     >
       {/* Animated Background Gradient */}
@@ -149,11 +118,7 @@ const ContactCard = ({ card }: { card: typeof contactCards[0] }) => {
         <div className="relative">
           <motion.div
             className="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center border-2"
-            style={{ borderColor: `var(--${card.color}-400)` }}
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          >
-            <Icon className={`w-8 h-8 text-${card.color}-400`} />
+            style={{ borderColor: `var(--${card.color}-400)` }} animate={{ rotate: [0, 360] }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} > <Icon className={`w-8 h-8 text-${card.color}-400`} />
           </motion.div>
           
           {/* Pulsing Glow Effect */}
@@ -177,7 +142,7 @@ const ContactCard = ({ card }: { card: typeof contactCards[0] }) => {
           {card.values ? (
             renderValue(card.values)
           ) : (
-            renderValue(card.value)
+            renderValue(card.value!)
           )}
 
           <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300">
@@ -191,31 +156,6 @@ const ContactCard = ({ card }: { card: typeof contactCards[0] }) => {
           animate={{ x: ['-100%', '100%'] }}
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
         />
-      </div>
-    </motion.div>
-  );
-};
-
-const StatCard = ({ stat }: { stat: typeof quickStats[0] }) => {
-  const Icon = stat.icon;
-
-  return (
-    <motion.div
-      className="glassmorphism rounded-xl p-6 text-center group hover:scale-105 transition-all duration-300 neon-border"
-      whileHover={{ y: -5 }}
-    >
-      <motion.div
-        className="mb-4"
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-      >
-        <Icon className={`w-8 h-8 mx-auto ${stat.color}`} />
-      </motion.div>
-      <div className={`text-3xl font-bold orbitron ${stat.color} mb-2`}>
-        {stat.count}
-      </div>
-      <div className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
-        {stat.label}
       </div>
     </motion.div>
   );
@@ -298,7 +238,7 @@ const Contact = () => {
             className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
             Get in touch with us for event registration, partnership opportunities, 
-            or any questions about VISIONIX.AI 2025
+            or any questions about BLITZ 2K26
           </motion.p>
         </motion.div>
 
@@ -317,25 +257,6 @@ const Contact = () => {
               transition={{ delay: 0.5 + index * 0.1 }}
             >
               <ContactCard card={card} />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Quick Stats */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 1.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-        >
-          {quickStats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 1.4 + index * 0.1 }}
-            >
-              <StatCard stat={stat} />
             </motion.div>
           ))}
         </motion.div>
@@ -365,21 +286,11 @@ const Contact = () => {
             />
             
             <div className="relative z-10 space-y-6">
-             
-              
-             
-              
-            
-              
-              
-              
-            
-               <p className="text-center text-gray-400">
-  <span className="gradient-text font-semibold">BLITZ 2K26</span>
-  <br />
-  November 29, 2026 • Vagdevi Commerce College
-</p>
-              
+              <p className="text-center text-gray-400">
+                <span className="gradient-text font-semibold">BLITZ 2K26</span>
+                <br />
+                November 29, 2026 • Vagdevi Commerce College
+              </p>
             </div>
           </div>
         </motion.div>
