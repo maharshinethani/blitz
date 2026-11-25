@@ -289,7 +289,7 @@ const Contact = () => {
               <p className="text-center text-gray-400">
                 <span className="gradient-text font-semibold">BLITZ 2K26</span>
                 <br />
-                November 29, 2026 • Vagdevi Commerce College
+                November 29, 2026 </br> Vagdevi Commerce College
               </p>
             </div>
           </div>
