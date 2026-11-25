@@ -4,10 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, Menu, X } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { id: 'home', label: 'Home' },
+
   { id: 'about', label: 'About' },
-  { id: 'speakers', label: 'Speakers' },
-  { id: 'contact', label: 'Contact' },
+ 
 ];
 
 const Navbar = () => {
