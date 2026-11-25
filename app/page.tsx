@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Preloader from '@/components/Preloader';
-import Navbar from '@/components/Navbar';
+
 
 import About from '@/components/sections/About';
 
@@ -18,7 +18,7 @@ export default function Home() {
       {isLoading && <Preloader onComplete={handlePreloaderComplete} />}
       {!isLoading && (
         <main className="bg-black min-h-screen">
-          <Navbar />
+      
           
           <About />
   
