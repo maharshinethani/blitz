@@ -281,7 +281,7 @@ const About: React.FC = () => {
                   <X className="w-5 h-5" />
                 </button>
                 <img
-                  src="/blitzbro.jpeg"
+                  src="/BROCHURE.jpeg"
                   alt="VISIONX AI Logo Full View"
                   className="w-full max-h-[80vh] object-contain rounded-2xl"
                 />
