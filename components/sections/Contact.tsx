@@ -286,11 +286,11 @@ const Contact = () => {
             />
             
             <div className="relative z-10 space-y-6">
-              <p className="text-center text-gray-400">
-                <span className="gradient-text font-semibold">BLITZ 2K26</span>
-                <br />
-                November 29, 2026 </br> Vagdevi Commerce College
-              </p>
+             <p className="text-center text-gray-400">
+  <span className="gradient-text font-semibold">BLITZ 2K26</span>
+  <br />
+  November 29, 2026 <br /> Vagdevi Commerce College
+</p>
             </div>
           </div>
         </motion.div>
