@@ -36,7 +36,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen py-24 overflow-hidden bg-[#030308] text-white flex items-center"
+      className="relative min-h-screen py-24 overflow-x-clip overflow-y-hidden bg-[#030308] text-white flex items-center w-full max-w-full"
     >
       {/* Deep Cyber Radial Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_#1d0642_0%,_#08091f_55%,_#030308_100%)]" />
@@ -67,13 +67,13 @@ const About: React.FC = () => {
       />
 
       {/* Main Content Container */}
-      <div ref={ref} className="relative z-10 container mx-auto px-4 max-w-6xl">
+      <div ref={ref} className="relative z-10 container mx-auto px-4 max-w-6xl w-full min-w-0">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 md:mb-20"
+          className="text-center mb-16 md:mb-20 max-w-full"
         >
           <h2 className="text-2xl md:text-5xl font-black tracking-tight orbitron bg-gradient-to-r from-white via-cyan-200 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,245,255,0.35)] mb-4">
             BLITZ 2K26
@@ -81,7 +81,7 @@ const About: React.FC = () => {
 
           {/* Glowing Subheading */}
           <motion.h3
-            className="text-lg md:text-2xl font-bold orbitron tracking-[0.3em] uppercase mb-6"
+            className="text-base sm:text-lg md:text-2xl font-bold orbitron tracking-[0.18em] sm:tracking-[0.3em] uppercase mb-6"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -111,20 +111,20 @@ const About: React.FC = () => {
         </motion.div>
 
         {/* 2-Column Content Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-stretch mt-2">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-stretch mt-2 w-full min-w-0">
           {/* Left Card: Ultra-Next-Level 3D Holographic Poster Deck (Top Shifted) */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative group rounded-3xl p-[1.5px] bg-gradient-to-br from-cyan-400 via-fuchsia-500/50 to-amber-400/70 shadow-[0_0_55px_rgba(0,245,255,0.2)] hover:shadow-[0_0_80px_rgba(255,0,255,0.38)] transition-shadow duration-500"
+            className="relative group rounded-3xl p-[1.5px] bg-gradient-to-br from-cyan-400 via-fuchsia-500/50 to-amber-400/70 shadow-[0_0_55px_rgba(0,245,255,0.2)] hover:shadow-[0_0_80px_rgba(255,0,255,0.38)] transition-shadow duration-500 w-full min-w-0 overflow-hidden"
             style={{ perspective: 1200 }}
           >
             <div
               ref={posterCardRef}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="relative h-full w-full rounded-3xl bg-[#070614]/95 backdrop-blur-2xl px-5 pt-4 pb-7 md:px-6 md:pt-5 md:pb-8 flex flex-col items-center justify-start overflow-hidden"
+              className="relative h-full w-full min-w-0 rounded-3xl bg-[#070614]/95 backdrop-blur-2xl px-4 pt-4 pb-6 sm:px-5 sm:pb-7 md:px-6 md:pt-5 md:pb-8 flex flex-col items-center justify-start overflow-hidden"
             >
               {/* Subtle Cyber Grid Backdrop */}
               <div
@@ -145,10 +145,10 @@ const About: React.FC = () => {
               />
 
               {/* Top-Aligned 3D Interactive Poster Stage */}
-              <div className="relative w-full flex-1 flex items-start justify-center">
+              <div className="relative w-full min-w-0 flex-1 flex items-start justify-center">
                 {/* Pulsing Neon Core Aura Behind Poster */}
                 <motion.div
-                  className="pointer-events-none absolute -top-3 w-72 h-72 md:w-80 md:h-80 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-amber-300 blur-2xl"
+                  className="pointer-events-none absolute -top-3 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-amber-300 blur-2xl"
                   animate={{
                     rotate: 360,
                     opacity: [0.22, 0.42, 0.22],
@@ -163,7 +163,7 @@ const About: React.FC = () => {
 
                 {/* Orbital Radar Ring */}
                 <motion.div
-                  className="pointer-events-none absolute top-6 w-64 h-64 md:w-72 md:h-72 rounded-full border border-dashed border-cyan-300/30"
+                  className="pointer-events-none absolute top-6 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full border border-dashed border-cyan-300/30"
                   animate={{ rotate: -360 }}
                   transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
                 />
@@ -177,7 +177,7 @@ const About: React.FC = () => {
                   }}
                   transition={{ type: "spring", stiffness: 220, damping: 18, mass: 0.6 }}
                   style={{ transformStyle: "preserve-3d" }}
-                  className="relative z-10 w-full cursor-pointer rounded-2xl overflow-hidden border border-cyan-300/35 bg-gradient-to-b from-cyan-400/10 via-[#0d0b24]/90 to-fuchsia-500/10 p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_25px_rgba(0,245,255,0.2)] group-hover:border-fuchsia-400/60 transition-colors duration-300"
+                  className="relative z-10 w-full max-w-full cursor-pointer rounded-2xl overflow-hidden border border-cyan-300/35 bg-gradient-to-b from-cyan-400/10 via-[#0d0b24]/90 to-fuchsia-500/10 p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_25px_rgba(0,245,255,0.2)] group-hover:border-fuchsia-400/60 transition-colors duration-300"
                 >
                   {/* Sci-Fi Corner Brackets */}
                   <span className="pointer-events-none absolute top-1.5 left-1.5 w-4 h-4 border-t-2 border-l-2 border-cyan-400 z-20" />
@@ -195,7 +195,7 @@ const About: React.FC = () => {
                   <img
                     src="/blitzbro.jpeg"
                     alt="VISIONX AI Logo"
-                    className="w-full max-h-[420px] object-contain rounded-xl relative z-10 select-none"
+                    className="w-full max-w-full max-h-[420px] object-contain rounded-xl relative z-10 select-none block"
                   />
                 </motion.div>
               </div>
@@ -204,19 +204,19 @@ const About: React.FC = () => {
 
           {/* Right Card: Event Details */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="relative group rounded-3xl p-[1.5px] bg-gradient-to-bl from-fuchsia-500/40 via-white/10 to-cyan-500/40 shadow-[0_0_40px_rgba(255,0,255,0.12)] hover:shadow-[0_0_50px_rgba(0,245,255,0.25)] transition-all duration-500"
+            className="relative group rounded-3xl p-[1.5px] bg-gradient-to-bl from-fuchsia-500/40 via-white/10 to-cyan-500/40 shadow-[0_0_40px_rgba(255,0,255,0.12)] hover:shadow-[0_0_50px_rgba(0,245,255,0.25)] transition-all duration-500 w-full min-w-0 overflow-hidden"
           >
-            <div className="relative h-full w-full rounded-3xl bg-[#090818]/90 backdrop-blur-xl p-8 md:p-10 flex flex-col justify-between space-y-8">
-              <div className="space-y-6">
+            <div className="relative h-full w-full min-w-0 rounded-3xl bg-[#090818]/90 backdrop-blur-xl p-6 sm:p-8 md:p-10 flex flex-col justify-between space-y-8 overflow-hidden">
+              <div className="space-y-6 min-w-0">
                 {/* Card Header */}
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-cyan-400/10 border border-cyan-400/30 text-cyan-400 shadow-[0_0_15px_rgba(0,245,255,0.25)]">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="shrink-0 p-2.5 rounded-xl bg-cyan-400/10 border border-cyan-400/30 text-cyan-400 shadow-[0_0_15px_rgba(0,245,255,0.25)]">
                     <Sparkles className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold orbitron bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold orbitron bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
                     Event Details
                   </h3>
                 </div>
@@ -228,9 +228,9 @@ const About: React.FC = () => {
               </div>
 
               {/* Bottom Section: Location + Motto */}
-              <div className="space-y-4">
+              <div className="space-y-4 min-w-0">
                 {/* Attractive Location Pill/Card */}
-                <div className="relative flex items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-[#0d0b24]/90 border border-fuchsia-400/25 hover:border-cyan-400/50 transition-colors duration-300 overflow-hidden">
+                <div className="relative flex items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-[#0d0b24]/90 border border-fuchsia-400/25 hover:border-cyan-400/50 transition-colors duration-300 overflow-hidden min-w-0">
                   <div className="pointer-events-none absolute -right-8 -top-8 w-24 h-24 rounded-full bg-fuchsia-500/15 blur-xl" />
 
                   <motion.div
@@ -256,7 +256,7 @@ const About: React.FC = () => {
 
                 {/* Bottom Neon Motto Banner */}
                 <motion.div
-                  className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-fuchsia-500/10 to-cyan-500/10 border border-white/10 text-center"
+                  className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-fuchsia-500/10 to-cyan-500/10 border border-white/10 text-center overflow-hidden"
                   animate={{
                     boxShadow: [
                       "0 0 15px rgba(0, 245, 255, 0.15)",
@@ -266,7 +266,7 @@ const About: React.FC = () => {
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
-                  <p className="text-xs sm:text-sm md:text-base font-bold orbitron tracking-[0.18em] bg-gradient-to-r from-cyan-300 via-white to-fuchsia-300 bg-clip-text text-transparent">
+                  <p className="text-xs sm:text-sm md:text-base font-bold orbitron tracking-[0.1em] sm:tracking-[0.18em] bg-gradient-to-r from-cyan-300 via-white to-fuchsia-300 bg-clip-text text-transparent break-words">
                     WHERE VIBES TURN INTO MEMORIES.
                   </p>
                 </motion.div>
