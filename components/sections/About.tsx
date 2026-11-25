@@ -198,7 +198,7 @@ const About: React.FC = () => {
                   />
 
                   <img
-                    src="/blitzbro.jpeg"
+                    src="/BROCHURE.jpeg"
                     alt="VISIONX AI Logo"
                     className="w-full max-w-full max-h-[420px] object-contain rounded-xl relative z-10 select-none block"
                   />
@@ -262,12 +262,8 @@ const About: React.FC = () => {
                     <p className="text-sm sm:text-base font-bold text-white group-hover/loc:text-cyan-200 transition-colors leading-snug">
                       Alluri Seetharama Raju Vignana Kendram
                     </p>
-                    <p className="text-xs text-gray-300 leading-relaxed mt-0.5">
-                      Sarada St, Prakasaraopeta, Nehru Nagar, Ram Nagar, Visakhapatnam, Andhra Pradesh 530020
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-medium text-fuchsia-300 group-hover/loc:text-cyan-300 mt-1">
-                      Open in Google Maps
-                    </span>
+                    
+                    
                   </div>
 
                   <ExternalLink className="shrink-0 w-4 h-4 text-cyan-300 group-hover/loc:translate-x-0.5 group-hover/loc:-translate-y-0.5 transition-transform" />
