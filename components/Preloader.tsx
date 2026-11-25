@@ -84,16 +84,9 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
 
   // Pre-load voices early so they are ready on button click
   useEffect(() => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-
-    const loadVoices = () => window.speechSynthesis.getVoices();
-    loadVoices();
-    window.speechSynthesis.addEventListener("voiceschanged", loadVoices);
-
-    return () => {
-      window.speechSynthesis.removeEventListener("voiceschanged", loadVoices);
-      window.speechSynthesis.cancel();
-    };
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.getVoices();
+    }
   }, []);
 
   // Generate particles once on mount based on viewport width
@@ -149,43 +142,50 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   }, [screen]);
 
   const speakWelcome = () => {
-    const cleanName = name.trim();
-    if (!cleanName || !gender) return;
+    if (!name.trim() || !gender) return;
 
+    const cleanName = name.trim();
     const title = gender === "male" ? "Mr." : "Ms.";
-    const message = `Welcome to Blitz 2K26 Freshers Party, ${title} ${cleanName}.`;
+    const message = `Welcome to Blitz, ${title} ${cleanName}.`;
 
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
 
       const utterance = new SpeechSynthesisUtterance(message);
+
       utterance.lang = "en-US";
       utterance.rate = 0.88;
       utterance.pitch = gender === "female" ? 1.05 : 0.95;
       utterance.volume = 1;
 
       const voices = window.speechSynthesis.getVoices();
+
       const preferredVoice =
         voices.find(
           (voice) =>
             voice.lang.toLowerCase().startsWith("en-us") &&
             /google|microsoft|natural/i.test(voice.name)
         ) ||
-        voices.find((voice) => voice.lang.toLowerCase().startsWith("en-us")) ||
+        voices.find((voice) =>
+          voice.lang.toLowerCase().startsWith("en-us")
+        ) ||
         voices[0];
 
       if (preferredVoice) {
         utterance.voice = preferredVoice;
       }
 
+      // Speak directly inside the click event handler so browsers allow audio
       window.speechSynthesis.speak(utterance);
     }
 
+    // Move to next page right away while voice plays in background
     onComplete();
   };
 
   const handleContinue = () => {
     if (!name.trim() || !gender) return;
+
     speakWelcome();
   };
 
@@ -231,15 +231,6 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            {/* Outer Rotating Energy Ring */}
-       
-
-            {/* Inner Counter-Rotating Halo */}
-           
-
-            {/* Top Tagline */}
-          
-
             {/* Main Event Title */}
             <motion.h1
               className="relative bg-gradient-to-r from-cyan-300 via-white to-purple-400 bg-clip-text text-5xl font-black tracking-[0.15em] text-transparent drop-shadow-[0_0_25px_rgba(0,245,255,0.6)] sm:text-7xl"
@@ -265,7 +256,8 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
             >
               Freshers Party
             </motion.p>
-  <motion.span
+
+            <motion.span
               className="mb-3 text-xs font-semibold uppercase tracking-[0.45em] text-cyan-300/80 sm:text-sm"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: [0.5, 1, 0.5], y: 0 }}
@@ -273,6 +265,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
             >
               Loading The Vibe
             </motion.span>
+
             {/* Progress Percentage & Bar */}
             <div className="mt-10 flex flex-col items-center">
               <motion.p
@@ -313,9 +306,6 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            {/* Subtle Neon Event Badge instead of Logo */}
-           
-
             <h1
               className={`${caveat.className} text-center text-[36px] font-bold leading-[1.15] text-white sm:text-[44px]`}
             >
@@ -396,7 +386,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
               whileTap={isFormValid ? { scale: 0.97 } : undefined}
               className={`mt-6 w-full rounded-2xl px-6 py-4 font-extrabold tracking-[0.2em] transition-all ${
                 isFormValid
-                  ? "bg-gradient-to-r from-cyan-400 to-purple-500 text-black shadow-[0_0_35px_rgba(0,245,255,0.3)]"
+                  ? "bg-gradient-to-r from-cyan-400 to-purple-500 text-gray-600"
                   : "cursor-not-allowed bg-white/10 text-gray-600"
               }`}
             >
