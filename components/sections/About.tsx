@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Sparkles, Maximize2, X, Scan } from "lucide-react";
+import { Sparkles, X, MapPin } from "lucide-react";
 import ParticleBackground from "../ParticleBackground";
 
 const About: React.FC = () => {
@@ -144,9 +144,6 @@ const About: React.FC = () => {
                 }}
               />
 
-              {/* Top Shifted HUD Header Bar */}
-              
-
               {/* Top-Aligned 3D Interactive Poster Stage */}
               <div className="relative w-full flex-1 flex items-start justify-center">
                 {/* Pulsing Neon Core Aura Behind Poster */}
@@ -200,9 +197,6 @@ const About: React.FC = () => {
                     alt="VISIONX AI Logo"
                     className="w-full max-h-[420px] object-contain rounded-xl relative z-10 select-none"
                   />
-
-                  {/* Bottom Hover Caption Strip */}
-                 
                 </motion.div>
               </div>
             </div>
@@ -229,26 +223,54 @@ const About: React.FC = () => {
 
                 {/* Description */}
                 <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                 Join us for the most anticipated cultural celebration of 2026! Experience an exciting celebration filled with captivating performances, unforgettable moments, vibrant energy, and a spirit of togetherness.
+                  Join us for the most anticipated cultural celebration of 2026! Experience an exciting celebration filled with captivating performances, unforgettable moments, vibrant energy, and a spirit of togetherness.
                 </p>
               </div>
 
-              {/* Bottom Neon Motto Banner */}
-              <motion.div
-                className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-fuchsia-500/10 to-cyan-500/10 border border-white/10 text-center"
-                animate={{
-                  boxShadow: [
-                    "0 0 15px rgba(0, 245, 255, 0.15)",
-                    "0 0 25px rgba(255, 0, 255, 0.25)",
-                    "0 0 15px rgba(0, 245, 255, 0.15)",
-                  ],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <p className="text-xs sm:text-sm md:text-base font-bold orbitron tracking-[0.18em] bg-gradient-to-r from-cyan-300 via-white to-fuchsia-300 bg-clip-text text-transparent">
-                  WHERE VIBES TURN INTO MEMORIES.
-                </p>
-              </motion.div>
+              {/* Bottom Section: Location + Motto */}
+              <div className="space-y-4">
+                {/* Attractive Location Pill/Card */}
+                <div className="relative flex items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-[#0d0b24]/90 border border-fuchsia-400/25 hover:border-cyan-400/50 transition-colors duration-300 overflow-hidden">
+                  <div className="pointer-events-none absolute -right-8 -top-8 w-24 h-24 rounded-full bg-fuchsia-500/15 blur-xl" />
+
+                  <motion.div
+                    className="relative shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400/15 to-fuchsia-500/20 border border-cyan-300/35 flex items-center justify-center text-cyan-300 shadow-[0_0_18px_rgba(0,245,255,0.22)]"
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <MapPin className="w-5 h-5 text-fuchsia-300 drop-shadow-[0_0_8px_rgba(232,121,249,0.8)]" />
+                  </motion.div>
+
+                  <div className="min-w-0 flex-1">
+                    <span className="block text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-300/80">
+                      Venue & Location
+                    </span>
+                    <p className="text-sm sm:text-base font-semibold text-white truncate">
+                      Main Auditorium / Campus Arena
+                    </p>
+                    <p className="text-xs text-gray-400 truncate">
+                      Update your exact venue or city here
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bottom Neon Motto Banner */}
+                <motion.div
+                  className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-fuchsia-500/10 to-cyan-500/10 border border-white/10 text-center"
+                  animate={{
+                    boxShadow: [
+                      "0 0 15px rgba(0, 245, 255, 0.15)",
+                      "0 0 25px rgba(255, 0, 255, 0.25)",
+                      "0 0 15px rgba(0, 245, 255, 0.15)",
+                    ],
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <p className="text-xs sm:text-sm md:text-base font-bold orbitron tracking-[0.18em] bg-gradient-to-r from-cyan-300 via-white to-fuchsia-300 bg-clip-text text-transparent">
+                    WHERE VIBES TURN INTO MEMORIES.
+                  </p>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
