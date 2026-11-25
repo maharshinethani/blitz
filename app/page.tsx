@@ -5,8 +5,6 @@ import Navbar from '@/components/Navbar';
 
 import About from '@/components/sections/About';
 
-import Events from '@/components/sections/Events';
-import Contact from '@/components/sections/Contact';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,8 +22,6 @@ export default function Home() {
           
           <About />
   
-          <Events />
-          <Contact />
         </main>
       )}
     </>
