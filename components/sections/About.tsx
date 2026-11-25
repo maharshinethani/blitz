@@ -39,7 +39,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen py-24 overflow-x-clip overflow-y-hidden bg-[#030308] text-white flex items-center w-full max-w-full"
+      className="relative min-h-screen pt-10 pb-20 md:pt-14 overflow-x-clip overflow-y-hidden bg-[#030308] text-white flex items-start md:items-center w-full max-w-full"
     >
       {/* Deep Cyber Radial Background */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_#1d0642_0%,_#08091f_55%,_#030308_100%)]" />
@@ -55,7 +55,7 @@ const About: React.FC = () => {
 
       {/* Floating Geometric HUD Rings */}
       <motion.div
-        className="pointer-events-none absolute top-16 right-16 w-36 h-36 border border-dashed border-cyan-400/20 rounded-full hidden lg:block"
+        className="pointer-events-none absolute top-12 right-16 w-36 h-36 border border-dashed border-cyan-400/20 rounded-full hidden lg:block"
         animate={{ rotate: 360, scale: [1, 1.08, 1] }}
         transition={{
           rotate: { duration: 20, repeat: Infinity, ease: "linear" },
@@ -78,15 +78,15 @@ const About: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 md:mb-20 max-w-full"
+          className="text-center mb-8 md:mb-10 max-w-full"
         >
-          <h2 className="text-2xl md:text-5xl font-black tracking-tight orbitron bg-gradient-to-r from-white via-cyan-200 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,245,255,0.35)] mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight orbitron bg-gradient-to-r from-white via-cyan-200 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,245,255,0.35)] mb-3">
             BLITZ 2K26
           </h2>
 
           {/* Glowing Subheading */}
           <motion.h3
-            className="text-base sm:text-lg md:text-2xl font-bold orbitron tracking-[0.18em] sm:tracking-[0.3em] uppercase mb-6"
+            className="text-xl sm:text-2xl md:text-2xl font-bold orbitron tracking-[0.12em] sm:tracking-[0.2em] uppercase mb-4"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -108,7 +108,7 @@ const About: React.FC = () => {
 
           {/* Animated Gradient Divider */}
           <motion.div
-            className="h-1 pt-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto rounded-full"
+            className="h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto rounded-full"
             initial={{ width: 0, opacity: 0 }}
             animate={isInView ? { width: 180, opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.3 }}
@@ -116,7 +116,7 @@ const About: React.FC = () => {
         </motion.div>
 
         {/* 2-Column Content Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-stretch mt-2 w-full min-w-0">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-stretch w-full min-w-0">
           {/* Left Card: Ultra-Next-Level 3D Holographic Poster Deck (Top Shifted) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -129,7 +129,7 @@ const About: React.FC = () => {
               ref={posterCardRef}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="relative h-full w-full min-w-0 rounded-3xl bg-[#070614]/95 backdrop-blur-2xl px-4 pt-4 pb-6 sm:px-5 sm:pb-7 md:px-6 md:pt-5 md:pb-8 flex flex-col items-center justify-start overflow-hidden"
+              className="relative h-full w-full min-w-0 rounded-3xl bg-[#070614]/95 backdrop-blur-2xl px-4 pt-3 pb-5 sm:px-5 sm:pb-6 md:px-6 md:pt-4 md:pb-7 flex flex-col items-center justify-start overflow-hidden"
             >
               {/* Subtle Cyber Grid Backdrop */}
               <div
@@ -214,8 +214,8 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="relative group rounded-3xl p-[1.5px] bg-gradient-to-bl from-fuchsia-500/40 via-white/10 to-cyan-500/40 shadow-[0_0_40px_rgba(255,0,255,0.12)] hover:shadow-[0_0_50px_rgba(0,245,255,0.25)] transition-all duration-500 w-full min-w-0 overflow-hidden"
           >
-            <div className="relative h-full w-full min-w-0 rounded-3xl bg-[#090818]/90 backdrop-blur-xl p-6 sm:p-8 md:p-10 flex flex-col justify-between space-y-8 overflow-hidden">
-              <div className="space-y-6 min-w-0">
+            <div className="relative h-full w-full min-w-0 rounded-3xl bg-[#090818]/90 backdrop-blur-xl p-6 sm:p-8 md:p-9 flex flex-col justify-between space-y-6 overflow-hidden">
+              <div className="space-y-5 min-w-0">
                 {/* Card Header */}
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="shrink-0 p-2.5 rounded-xl bg-cyan-400/10 border border-cyan-400/30 text-cyan-400 shadow-[0_0_15px_rgba(0,245,255,0.25)]">
@@ -262,8 +262,6 @@ const About: React.FC = () => {
                     <p className="text-sm sm:text-base font-bold text-white group-hover/loc:text-cyan-200 transition-colors leading-snug">
                       Alluri Seetharama Raju Vignana Kendram
                     </p>
-                    
-                    
                   </div>
 
                   <ExternalLink className="shrink-0 w-4 h-4 text-cyan-300 group-hover/loc:translate-x-0.5 group-hover/loc:-translate-y-0.5 transition-transform" />
