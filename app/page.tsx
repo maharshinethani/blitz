@@ -4,7 +4,7 @@ import Preloader from '@/components/Preloader';
 import Navbar from '@/components/Navbar';
 
 import About from '@/components/sections/About';
-import Speakers from '@/components/sections/Speakers';
+
 import Events from '@/components/sections/Events';
 import Contact from '@/components/sections/Contact';
 
@@ -23,7 +23,7 @@ export default function Home() {
           <Navbar />
           
           <About />
-          <Speakers />
+  
           <Events />
           <Contact />
         </main>
