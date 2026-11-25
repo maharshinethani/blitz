@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Menu, X } from 'lucide-react';
+import { Zap,  X } from 'lucide-react';
 
 const NAV_ITEMS = [
 
@@ -118,16 +118,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen((v) => !v)}
-            className="md:hidden p-2 rounded-lg text-cyan-400 hover:text-cyan-300 focus:outline-none focus:ring focus:ring-cyan-500/30"
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-menu"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+       
         </div>
       </div>
 
