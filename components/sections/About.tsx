@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Sparkles, X, MapPin, ExternalLink } from "lucide-react";
+import { Sparkles, X, MapPin, ExternalLink, Globe, Phone } from "lucide-react";
 import ParticleBackground from "../ParticleBackground";
 
 const MAPS_URL =
@@ -39,7 +39,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen pt-10 pb-20 md:pt-14 overflow-x-clip overflow-y-hidden bg-[#030308] text-white flex items-start md:items-center w-full max-w-full"
+      className="relative min-h-screen pt-10 md:pt-14 overflow-x-clip overflow-y-hidden bg-[#030308] text-white flex flex-col justify-between w-full max-w-full"
     >
       {/* Deep Cyber Radial Background */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_#1d0642_0%,_#08091f_55%,_#030308_100%)]" />
@@ -63,7 +63,7 @@ const About: React.FC = () => {
         }}
       />
       <motion.div
-        className="pointer-events-none absolute bottom-16 left-16 w-28 h-28 border border-fuchsia-500/20 rounded-full hidden lg:block"
+        className="pointer-events-none absolute bottom-28 left-16 w-28 h-28 border border-fuchsia-500/20 rounded-full hidden lg:block"
         animate={{ rotate: -360, y: [-10, 10, -10] }}
         transition={{
           rotate: { duration: 15, repeat: Infinity, ease: "linear" },
@@ -72,7 +72,10 @@ const About: React.FC = () => {
       />
 
       {/* Main Content Container */}
-      <div ref={ref} className="relative z-20 container mx-auto px-4 max-w-6xl w-full min-w-0">
+      <div
+        ref={ref}
+        className="relative z-20 container mx-auto my-auto px-4 pb-16 max-w-6xl w-full min-w-0"
+      >
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -288,6 +291,51 @@ const About: React.FC = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* ================= FULL-WIDTH ROYAL BLUE FOOTER ================= */}
+      <footer className="relative z-20 w-full border-t border-sky-400/25 bg-gradient-to-r from-[#061326]/95 via-[#0b2347]/95 to-[#061326]/95 px-4 py-5 shadow-[0_-10px_30px_rgba(2,10,25,0.65)] backdrop-blur-md sm:py-6">
+        <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+          {/* Top hairline divider with center star */}
+          <div className="mb-2.5 flex items-center gap-2.5">
+            <span className="h-[1px] w-10 bg-gradient-to-r from-transparent to-sky-400/50" />
+            <span className="text-[9px] text-sky-300/80">✦</span>
+            <span className="h-[1px] w-10 bg-gradient-to-l from-transparent to-sky-400/50" />
+          </div>
+
+          <p className="text-[9px] font-medium uppercase tracking-[0.32em] text-sky-200/75 sm:text-[10px]">
+            Website Crafted By
+          </p>
+
+          <a
+            href="https://rcmdigisolutions.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 orbitron text-sm font-semibold tracking-[0.22em] text-sky-300 transition-colors duration-300 hover:text-white sm:text-base"
+          >
+            RCM DIGITAL SOLUTIONS
+          </a>
+
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-2.5 text-[11px] text-sky-100/85 sm:gap-3 sm:text-xs">
+            <a
+              href="https://rcmdigisolutions.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-950/70 px-3.5 py-1 transition-all duration-200 hover:border-cyan-300/60 hover:bg-sky-800/50 hover:text-white"
+            >
+              <Globe className="h-3.5 w-3.5 text-cyan-300" />
+              <span>rcmdigisolutions.netlify.app</span>
+            </a>
+
+            <a
+              href="tel:+918500708626"
+              className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-950/70 px-3.5 py-1 transition-all duration-200 hover:border-cyan-300/60 hover:bg-sky-800/50 hover:text-white"
+            >
+              <Phone className="h-3.5 w-3.5 text-sky-300" />
+              <span>+91 85007 08626</span>
+            </a>
+          </div>
+        </div>
+      </footer>
 
       {/* Fullscreen Poster Lightbox Modal */}
       <AnimatePresence>
