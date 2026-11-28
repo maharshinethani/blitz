@@ -323,7 +323,7 @@ const About: React.FC = () => {
               className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-950/70 px-3.5 py-1 transition-all duration-200 hover:border-cyan-300/60 hover:bg-sky-800/50 hover:text-white"
             >
               <Globe className="h-3.5 w-3.5 text-cyan-300" />
-              <span>rcmdigisolutions.netlify.app</span>
+              <span>rcmdigisolutions.in</span>
             </a>
 
             <a
